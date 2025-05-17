@@ -1,0 +1,1327 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SMKN 2 Bone - Sekolah Pusat Keunggulan</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --biru: #0066cc;
+            --biru-gelap: #004a99;
+            --putih: #ffffff;
+            --abu: #f5f5f5;
+            --hitam: #333333;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Reset & Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            line-height: 1.6;
+            color: var(--hitam);
+            overflow-x: hidden;
+        }
+        
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .section {
+            padding: 60px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .section-title h2 {
+            font-size: 2rem;
+            color: var(--biru);
+            position: relative;
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--biru);
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-outline {
+            border: 2px solid var(--biru);
+            color: var(--biru);
+        }
+        
+        .btn-outline:hover {
+            background-color: var(--biru);
+            color: var(--putih);
+        }
+        
+        .btn-solid {
+            background-color: var(--biru);
+            color: var(--putih);
+        }
+        
+        .btn-solid:hover {
+            background-color: var(--biru-gelap);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow);
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: var(--putih);
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo img {
+            height: 50px;
+            margin-right: 10px;
+        }
+        
+        .logo-text h1 {
+            font-size: 1.2rem;
+            color: var(--biru);
+        }
+        
+        .logo-text p {
+            font-size: 0.8rem;
+            color: var(--hitam);
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 25px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--hitam);
+            font-weight: 600;
+            transition: color 0.3s;
+            position: relative;
+        }
+        
+        .nav-links a:hover {
+            color: var(--biru);
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--biru);
+            transition: width 0.3s;
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        .menu-toggle {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('images/hero-bg.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: var(--putih);
+            text-align: center;
+            padding: 120px 0;
+            position: relative;
+        }
+        
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            animation: fadeInDown 1s ease;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 30px;
+            animation: fadeInUp 1s ease;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            animation: fadeIn 1.5s ease;
+        }
+        
+        /* About Section */
+        .about {
+            background-color: var(--putih);
+        }
+        
+        .profile-content {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+        
+        .profile-text {
+            flex: 1;
+        }
+        
+        .profile-text h3 {
+            font-size: 1.8rem;
+            color: var(--biru);
+            margin-bottom: 20px;
+        }
+        
+        .profile-text p {
+            margin-bottom: 15px;
+        }
+        
+        .profile-text ul {
+            margin-left: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .profile-text ul li {
+            margin-bottom: 8px;
+        }
+        
+        .profile-image {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+        
+        /* Jurusan Section */
+        .jurusan {
+            background-color: var(--abu);
+        }
+        
+        .jurusan-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .jurusan-card {
+            background-color: var(--putih);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .jurusan-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .jurusan-image {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .jurusan-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .jurusan-card:hover .jurusan-image img {
+            transform: scale(1.1);
+        }
+        
+        .jurusan-info {
+            padding: 20px;
+        }
+        
+        .jurusan-info h3 {
+            color: var(--biru);
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+        
+        /* Prestasi Section */
+        .prestasi-container {
+            background-color: var(--abu);
+            padding: 30px;
+            border-radius: 10px;
+            margin-bottom: 40px;
+        }
+        
+        .prestasi-container h3 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: var(--biru);
+            font-size: 1.5rem;
+        }
+        
+        .prestasi-slider {
+            display: flex;
+            overflow-x: auto;
+            gap: 20px;
+            padding: 10px 0;
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+        }
+        
+        .prestasi-slider::-webkit-scrollbar {
+            height: 8px;
+        }
+        
+        .prestasi-slider::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+        
+        .prestasi-slider::-webkit-scrollbar-thumb {
+            background: var(--biru);
+            border-radius: 10px;
+        }
+        
+        .prestasi-item {
+            min-width: 300px;
+            background-color: var(--putih);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            scroll-snap-align: start;
+        }
+        
+        .prestasi-item h3 {
+            color: var(--biru);
+            margin-bottom: 10px;
+        }
+        
+        .agenda-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        
+        .agenda-item {
+            background-color: var(--abu);
+            padding: 20px;
+            border-radius: 8px;
+        }
+        
+        .agenda-item h4 {
+            margin-bottom: 10px;
+            color: var(--biru);
+        }
+        
+        .agenda-item p {
+            margin-bottom: 5px;
+        }
+        
+        .agenda-item i {
+            margin-right: 8px;
+            color: var(--biru);
+        }
+        
+        /* Testimoni Section */
+        .testimoni {
+            background-color: var(--abu);
+        }
+        
+        .testimoni-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .testimoni-card {
+            background-color: var(--putih);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            position: relative;
+        }
+        
+        .testimoni-card::before {
+            content: '"';
+            font-size: 5rem;
+            color: var(--abu);
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            line-height: 1;
+            z-index: 0;
+            opacity: 0.7;
+        }
+        
+        .testimoni-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .testimoni-author {
+            display: flex;
+            align-items: center;
+            margin-top: 20px;
+        }
+        
+        .author-image {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 15px;
+            border: 3px solid var(--biru);
+        }
+        
+        .author-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .author-info h4 {
+            color: var(--biru);
+            margin-bottom: 5px;
+        }
+        
+        /* PPDB Section */
+        .ppdb-container {
+            background-color: var(--biru);
+            color: var(--putih);
+            padding: 40px;
+            border-radius: 10px;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .ppdb-container h2 {
+            margin-bottom: 15px;
+            font-size: 1.8rem;
+        }
+        
+        .ppdb-container p {
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+        
+        .ppdb-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            text-align: left;
+            margin-top: 30px;
+        }
+        
+        .ppdb-info h3 {
+            color: var(--putih);
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .ppdb-info h3 i {
+            margin-right: 10px;
+        }
+        
+        .ppdb-info ul {
+            list-style: none;
+        }
+        
+        .ppdb-info ul li {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .ppdb-info ul li i {
+            margin-right: 10px;
+            margin-top: 3px;
+        }
+        
+        .form-container {
+            background-color: var(--putih);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .form-container h3 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: var(--biru);
+            font-size: 1.5rem;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--hitam);
+        }
+        
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #305aff;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+        
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: var(--biru);
+            outline: none;
+        }
+        
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+        
+        .form-submit {
+            width: 100%;
+            padding: 15px;
+            background-color: var(--biru);
+            color: var(--putih);
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .form-submit:hover {
+            background-color: var(--biru-gelap);
+        }
+         
+/* PPDB Section */
+        .ppdb-section {
+            background: #097ef2;
+            padding: 4rem 0;
+        }
+
+        .ppdb-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .ppdb-header h2 {
+            color: #ffc800;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .ppdb-header h3 {
+            color: #ffffff;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .ppdb-description {
+            color: #ffffff;
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .ppdb-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .ppdb-card {
+            background: white;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .ppdb-card h4 {
+            color: #2c3e50;
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .ppdb-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .ppdb-list li {
+            padding: 0.8rem 0;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            color: #4a5568;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .ppdb-list li:last-child {
+            border-bottom: none;
+        }
+
+        /* Jadwal khusus */
+        .schedule-date {
+            display: inline-block;
+            width: 120px;
+            color: #0066cc;
+            font-weight: 500;
+        }
+
+        .schedule-title {
+            color: #4a5568;
+        }
+
+        /* Tombol CTA */
+        .ppdb-cta {
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            padding: 1rem 2.5rem;
+            background: #ffffff;
+            color: rgb(24, 101, 255);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+            color: rgb(253, 130, 6);
+        }        
+        /* Footer */
+        footer {
+            background-color: var(--hitam);
+            color: var(--putih);
+            padding: 60px 0 0;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-logo img {
+            height: 60px;
+            margin-bottom: 20px;
+        }
+        
+        .footer-logo p {
+            margin-bottom: 20px;
+            color: #ccc;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: var(--putih);
+            font-size: 1.2rem;
+            transition: all 0.3s;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--biru);
+            transform: translateY(-3px);
+        }
+        
+        .footer-links h3,
+        .footer-contact h3 {
+            color: var(--putih);
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-links h3::after,
+        .footer-contact h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--biru);
+        }
+        
+        .footer-links ul {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--putih);
+        }
+        
+        .footer-contact p {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: flex-start;
+            color: #ccc;
+        }
+        
+        .footer-contact i {
+            margin-right: 10px;
+            color: var(--biru);
+            margin-top: 3px;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding: 20px 0;
+            border-top: 1px solid #444;
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+        
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .profile-content {
+                flex-direction: column;
+            }
+            
+            .profile-image {
+                margin-top: 30px;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+            
+            .nav-links {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 80px);
+                background-color: var(--putih);
+                flex-direction: column;
+                align-items: center;
+                padding: 40px 0;
+                transition: left 0.3s;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+            }
+            
+            .nav-links.active {
+                left: 0;
+            }
+            
+            .nav-links li {
+                margin: 15px 0;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .btn {
+                width: 100%;
+                max-width: 300px;
+                margin: 0 auto;
+            }
+            
+            .section {
+                padding: 40px 0;
+            }
+            
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero {
+                padding: 80px 0;
+            }
+            
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .ppdb-container {
+                padding: 30px 20px;
+            }
+            
+            .form-container {
+                padding: 30px 20px;
+            }
+            
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo">
+                    <img src="images/logo-smkn2bone.png" alt="Logo SMKN 2 Bone">
+                    <div class="logo-text">
+                        <h1>SMKN 2 BONE</h1>
+                        <p>Sekolah Pusat Keunggulan</p>
+                    </div>
+                </div>
+                
+                <ul class="nav-links">
+                    <li><a href="#beranda">Beranda</a></li>
+                    <li><a href="#profil">Profil</a></li>
+                    <li><a href="#jurusan">Jurusan</a></li>
+                    <li><a href="#prestasi">Prestasi</a></li>
+                    <li><a href="#testimoni">Testimoni</a></li>
+                    <li><a href="#ppdb">PPDB</a></li>
+                    <li><a href="#kontak">Kontak</a></li>
+                </ul>
+                
+                <div class="cta-buttons">
+                    <a href="#ppdb" class="btn btn-outline">Daftar Sekarang</a>
+                </div>
+                
+                <div class="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="beranda" class="hero">
+        <div class="container">
+            <h1>Membentuk Generasi Unggul dan Berkarakter</h1>
+            <p>SMK Negeri 2 Bone siap mencetak lulusan kompeten yang siap kerja dan berdaya saing global</p>
+            <div class="hero-buttons">
+                <a href="#jurusan" class="btn btn-solid">Jelajahi Jurusan Kami</a>
+                <a href="#ppdb" class="btn btn-outline">Daftar Sekarang</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Profil Section -->
+    <section id="profil" class="section about">
+        <div class="container">
+            <div class="section-title">
+                <h2>Profil Sekolah</h2>
+            </div>
+            
+            <div class="profile-content">
+                <div class="profile-text">
+                    <h3>Selamat Datang di SMKN 2 Bone</h3>
+                    <p>SMK Negeri 2 Bone merupakan salah satu sekolah menengah kejuruan terbaik di Kabupaten Bone yang telah melahirkan banyak lulusan kompeten di berbagai bidang industri.</p>
+                    <p>Didirikan pada tahun 2007, kami terus berkomitmen untuk memberikan pendidikan berkualitas dengan fasilitas modern dan tenaga pengajar yang berpengalaman.</p>
+                    
+                    <div style="margin-top: 30px;">
+                        <h4>Visi:</h4>
+                        <p>"Menjadi SMK Unggul yang Berbudaya Lingkungan, Berkarakter Kebangsaan, dan Berdaya Saing Global."</p>
+                        
+                        <h4 style="margin-top: 20px;">Misi:</h4>
+                        <ul>
+                            <li>Menyelenggarakan pendidikan kejuruan berbasis kompetensi</li>
+                            <li>Mengembangkan potensi siswa secara holistik</li>
+                            <li>Menjalin kerjasama dengan dunia industri</li>
+                            <li>Menerapkan budaya lingkungan yang berkelanjutan</li>
+                            <li>Membangun karakter kebangsaan yang kuat</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="profile-image">
+                    <img src="images/profil-sekolah.jpg" alt="Gedung SMKN 2 Bone">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Jurusan Section -->
+    <section id="jurusan" class="section jurusan">
+        <div class="container">
+            <div class="section-title">
+                <h2>Program Keahlian</h2>
+            </div>
+            
+            <div class="jurusan-grid">
+                <!-- Jurusan 1 -->
+                <div class="jurusan-card">
+                    <div class="jurusan-image">
+                        <img src="images/jurusan-tkro.jpg" alt="Teknik Kendaraan Ringan Otomotif">
+                    </div>
+                    <div class="jurusan-info">
+                        <h3>Teknik Kendaraan Ringan Otomotif (TKRO)</h3>
+                        <p>Mempelajari perawatan dan perbaikan kendaraan ringan dengan standar industri. Lulusan siap bekerja di bengkel resmi atau industri otomotif.</p>
+                        <a href="#" class="btn btn-outline" style="margin-top: 15px; display: inline-block;">Selengkapnya</a>
+                    </div>
+                </div>
+                
+                <!-- Jurusan 2 -->
+                <div class="jurusan-card">
+                    <div class="jurusan-image">
+                        <img src="images/jurusan-tbsm.jpg" alt="Teknik Bisnis Sepeda Motor">
+                    </div>
+                    <div class="jurusan-info">
+                        <h3>Teknik Bisnis Sepeda Motor (TBSM)</h3>
+                        <p>Fokus pada perbaikan sepeda motor dan kewirausahaan di bidang otomotif. Siswa dibekali keterampilan teknis dan manajemen bengkel.</p>
+                        <a href="#" class="btn btn-outline" style="margin-top: 15px; display: inline-block;">Selengkapnya</a>
+                    </div>
+                </div>
+                
+                <!-- Jurusan 3 -->
+                <div class="jurusan-card">
+                    <div class="jurusan-image">
+                        <img src="images/jurusan-dkv.jpg" alt="Desain Komunikasi Visual">
+                    </div>
+                    <div class="jurusan-info">
+                        <h3>Desain Komunikasi Visual (DKV)</h3>
+                        <p>Mengembangkan kreativitas di bidang desain grafis, fotografi, dan multimedia. Lulusan mampu bekerja di industri kreatif dan media.</p>
+                        <a href="#" class="btn btn-outline" style="margin-top: 15px; display: inline-block;">Selengkapnya</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Prestasi Section -->
+    <section id="prestasi" class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Prestasi & Kegiatan</h2>
+            </div>
+            
+            <div class="prestasi-container">
+                <h3>Prestasi Terbaru</h3>
+                
+                <div class="prestasi-slider">
+                    <!-- Prestasi 1 -->
+                    <div class="prestasi-item">
+                        <h3>Juara 1 Lomba Film Pendek Tingkat Provinsi</h3>
+                        <p>Siswa jurusan DKV meraih juara 1 dalam kompetisi film pendek yang diadakan oleh Dinas Pendidikan Provinsi Sulawesi Selatan.</p>
+                    </div>
+                    
+                    <!-- Prestasi 2 -->
+                    <div class="prestasi-item">
+                        <h3>Juara 3 Desain Grafis Nasional</h3>
+                        <p>Tim desain SMKN 2 Bone berhasil masuk 3 besar dalam kompetisi desain grafis tingkat nasional yang diikuti oleh 200 peserta.</p>
+                    </div>
+                    
+                    <!-- Prestasi 3 -->
+                    <div class="prestasi-item">
+                        <h3>Medali Perak Kompetisi Otomotif</h3>
+                        <p>Siswa jurusan TKRO meraih medali perak dalam kompetisi keterampilan otomotif se-Sulawesi.</p>
+                    </div>
+                    
+                    <!-- Prestasi 4 -->
+                    <div class="prestasi-item">
+                        <h3>Juara 2 Robotik Tingkat Kabupaten</h3>
+                        <p>Tim robotik sekolah berhasil meraih juara 2 dalam lomba robotik antar SMK se-Kabupaten Bone.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <h3 style="text-align: center; margin: 40px 0 20px; color: var(--biru);">Agenda Terkini</h3>
+            
+            <div class="agenda-grid">
+                <div class="agenda-item">
+                    <h4><i class="fas fa-calendar-check"></i> Ujian Kompetensi Keahlian</h4>
+                    <p><i class="fas fa-clock"></i> 15-20 Maret 2024</p>
+                    <p>Ujian praktik untuk mengukur kompetensi siswa kelas XII.</p>
+                </div>
+                
+                <div class="agenda-item">
+                    <h4><i class="fas fa-briefcase"></i> Job Fair & Rekrutmen</h4>
+                    <p><i class="fas fa-clock"></i> 5 April 2024</p>
+                    <p>Kerjasama dengan perusahaan mitra untuk penempatan kerja siswa.</p>
+                </div>
+                
+                <div class="agenda-item">
+                    <h4><i class="fas fa-user-graduate"></i> Penerimaan Peserta Didik Baru</h4>
+                    <p><i class="fas fa-clock"></i> 1-30 Juni 2024</p>
+                    <p>Pendaftaran siswa baru tahun ajaran 2024/2025.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimoni Section -->
+    <section id="testimoni" class="section testimoni">
+        <div class="container">
+            <div class="section-title">
+                <h2>Testimoni Alumni</h2>
+            </div>
+            
+            <div class="testimoni-grid">
+                <!-- Testimoni 1 -->
+                <div class="testimoni-card">
+                    <div class="testimoni-content">
+                        <p>Saya sangat berterima kasih kepada SMKN 2 Bone yang telah membekali saya dengan keterampilan otomotif. Sekarang saya bekerja sebagai mekanik di bengkel resmi Honda dengan gaji yang memuaskan.</p>
+                        
+                        <div class="testimoni-author">
+                            <div class="author-image">
+                                <img src="images/alumni1.jpg" alt="Andi Pratama">
+                            </div>
+                            <div class="author-info">
+                                <h4>Andi Pratama</h4>
+                                <p>Alumni TKRO 2018</p>
+                                <p><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimoni 2 -->
+                <div class="testimoni-card">
+                    <div class="testimoni-content">
+                        <p>Pelajaran desain grafis di SMKN 2 Bone sangat aplikatif. Saya sekarang bekerja di agency digital marketing dengan klien dari berbagai negara. Terima kasih untuk semua guru yang telah membimbing!</p>
+                        
+                        <div class="testimoni-author">
+                            <div class="author-image">
+                                <img src="images/alumni2.jpg" alt="Dewi Rahayu">
+                            </div>
+                            <div class="author-info">
+                                <h4>Dewi Rahayu</h4>
+                                <p>Alumni DKV 2019</p>
+                                <p><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimoni 3 -->
+                <div class="testimoni-card">
+                    <div class="testimoni-content">
+                        <p>Setelah lulus dari TBSM, saya membuka bengkel motor sendiri dengan modal dari tabungan selama praktik kerja industri. Sekarang bengkel saya sudah punya 3 karyawan. Ilmu kewirausahaan dari sekolah sangat membantu.</p>
+                        
+                        <div class="testimoni-author">
+                            <div class="author-image">
+                                <img src="images/alumni3.jpg" alt="Budi Santoso">
+                            </div>
+                            <div class="author-info">
+                                <h4>Budi Santoso</h4>
+                                <p>Alumni TBSM 2020</p>
+                                <p><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PPDB Section -->
+    <section class="ppdb-section">
+    <div class="container">
+        <div class="ppdb-header">
+            <h2>Penerimaan Peserta Didik Baru</h2>
+            <h3>Tahun Ajaran 2024/2025</h3>
+            <p class="ppdb-description">Pendaftaran dibuka mulai 1 Juni 2024. Segera daftarkan diri Anda untuk mendapatkan pendidikan terbaik di SMKN 2 Bone.</p>
+        </div>
+
+        <div class="ppdb-content">
+            <div class="ppdb-grid">
+                <!-- Persyaratan -->
+                <div class="ppdb-card requirements">
+                    <h4><i class="fas fa-clipboard-list"></i> Persyaratan</h4>
+                    <ul class="ppdb-list">
+                        <li><i class="fas fa-check-circle"></i> Fotokopi ijazah SMP/sederajat</li>
+                        <li><i class="fas fa-check-circle"></i> Fotokopi SKHUN</li>
+                        <li><i class="fas fa-check-circle"></i> Pas foto 3x4 (4 lembar)</li>
+                        <li><i class="fas fa-check-circle"></i> Fotokopi KTP orang tua</li>
+                        <li><i class="fas fa-check-circle"></i> Surat keterangan sehat</li>
+                    </ul>
+                </div>
+
+                <!-- Jadwal -->
+                <div class="ppdb-card schedule">
+                    <h4><i class="fas fa-calendar-alt"></i> Jadwal Penting</h4>
+                    <ul class="ppdb-list">
+                        <li>
+                            <i class="fas fa-arrow-circle-right"></i>
+                            <span class="schedule-date">1-30 Juni 2024</span>
+                            <span class="schedule-title">Pendaftaran</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-arrow-circle-right"></i>
+                            <span class="schedule-date">5 Juli 2024</span>
+                            <span class="schedule-title">Tes Seleksi</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-arrow-circle-right"></i>
+                            <span class="schedule-date">10 Juli 2024</span>
+                            <span class="schedule-title">Pengumuman</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-arrow-circle-right"></i>
+                            <span class="schedule-date">15-20 Juli 2024</span>
+                            <span class="schedule-title">Daftar Ulang</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="ppdb-cta">
+                <a href="#form-ppdb" class="cta-button">
+                    <i class="fas fa-edit"></i> Daftar Online Sekarang
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+            <!-- Form PPDB -->
+            <div id="form-ppdb" class="form-container">
+                <h3>Formulir Pendaftaran Online</h3>
+                
+                <form>
+                    <div class="form-group">
+                        <label for="nama">Nama Lengkap</label>
+                        <input type="text" id="nama" placeholder="Masukkan nama lengkap" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="asal-sekolah">Asal Sekolah</label>
+                        <input type="text" id="asal-sekolah" placeholder="Nama sekolah asal" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="jurusan">Jurusan yang Dipilih</label>
+                        <select id="jurusan" required>
+                            <option value="">Pilih Jurusan</option>
+                            <option>Teknik Kendaraan Ringan Otomotif (TKRO)</option>
+                            <option>Teknik Bisnis Sepeda Motor (TBSM)</option>
+                                                       <option>Desain Komunikasi Visual (DKV)</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="whatsapp">Nomor WhatsApp</label>
+                        <input type="tel" id="whatsapp" placeholder="Contoh: 081234567890" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Alamat Email</label>
+                        <input type="email" id="email" placeholder="email@contoh.com" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="berkas">Unggah Berkas (Ijazah/SKHUN)</label>
+                        <input type="file" id="berkas" accept=".pdf,.jpg,.png" required>
+                    </div>
+                    
+                    <button type="submit" class="form-submit">Kirim Pendaftaran</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="kontak">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-logo">
+                    <img src="images/logo-smkn2bone-white.png" alt="Logo SMKN 2 Bone">
+                    <p>SMK Negeri 2 Bone merupakan sekolah unggulan di Kabupaten Bone yang menghasilkan lulusan kompeten dan berkarakter.</p>
+                    
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-tiktok"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h3>Menu Cepat</h3>
+                    <ul>
+                        <li><a href="#beranda">Beranda</a></li>
+                        <li><a href="#profil">Profil</a></li>
+                        <li><a href="#jurusan">Jurusan</a></li>
+                        <li><a href="#prestasi">Prestasi</a></li>
+                        <li><a href="#ppdb">PPDB</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-contact">
+                    <h3>Kontak Kami</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Jl. Sungai Musi, Kel. Panyula, Kab. Bone,</p>
+                    <p><i class="fas fa-phone"></i> (0411) 1234567</p>
+                    <p><i class="fas fa-envelope"></i> info@smkn2bone.sch.id</p>
+                    <p><i class="fas fa-clock"></i> Senin-Jumat: 07.30 - 16.00 WITA</p>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2025 SMKN 2 Bone. All rights reserved | Developed by aldi</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Script untuk Menu Mobile -->
+    <script>
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            menuToggle.classList.toggle('fa-times');
+        });
+
+        // Tutup menu saat klik di luar
+        document.addEventListener('click', (e) => {
+            if(!menuToggle.contains(e.target) && !navLinks.contains(e.target)) {
+                navLinks.classList.remove('active');
+                menuToggle.classList.remove('fa-times');
+            }
+        });
+
+        // Smooth scroll untuk semua link
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
