@@ -193,21 +193,21 @@ header {
         .hero h1 {
             font-size: 2.5rem;
             margin-bottom: 20px;
-            animation: fadeInDown 1s ease;
+            
         }
         
         .hero p {
             font-size: 1.2rem;
             max-width: 800px;
             margin: 0 auto 30px;
-            animation: fadeInUp 1s ease;
+            
         }
         
         .hero-buttons {
             display: flex;
             justify-content: center;
             gap: 20px;
-            animation: fadeIn 1.5s ease;
+            
         }
         
         /* About Section */
@@ -777,27 +777,18 @@ header {
         }
         
         /* Animations */
-        @keyframes fadeIn {
-            from { opacity: 0; }
+        
             to { opacity: 1; }
         }
         
-        @keyframes fadeInDown {
-            from {
-                opacity: 0;
-                transform: translateY(-20px);
-            }
+        
             to {
                 opacity: 1;
                 transform: translateY(0);
             }
         }
         
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
+        
             to {
                 opacity: 1;
                 transform: translateY(0);
